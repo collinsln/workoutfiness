@@ -1,0 +1,122 @@
+import React, { useState } from 'react';
+import { ImageBackground, StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import colors from '../config/colors';
+import BackgroundMusic from './BackgroundMusic';
+import SpinningAsterisk from './SpinningAsterisk';
+import GenderSelection from './GenderSelection'; // Import the GenderSelection component
+
+function WelcomeScreen() {
+    const navigation = useNavigation();
+    const [selectedGender, setSelectedGender] = useState(null);
+
+    const handleSelectGender = (gender) => {
+        setSelectedGender(gender);
+        // You can handle gender selection here or navigate based on selection
+        console.log('Selected Gender:', gender);
+    };
+
+    return (
+        <ImageBackground 
+            style={styles.background}
+            source={require("../assets/icon.png")}
+        >
+            <BackgroundMusic/>
+
+            <View style={styles.logoContainer}>
+                <Image style={styles.logo} source={require("../assets/logo96.png")}/>
+
+                <SpinningAsterisk />
+
+                <Text style={styles.textStyle}>Commit to Fit, Commit to You.</Text>
+
+                <GenderSelection onSelectGender={handleSelectGender} />
+            </View>
+
+            {selectedGender && (
+                <TouchableOpacity 
+                    style={styles.workoutButton}
+                    onPress={() => navigation.navigate('GoalSelectionScreen')}  
+                >
+                    <Text style={styles.buttonText}>Select Your Goal</Text>
+                </TouchableOpacity>
+            )}
+
+            <TouchableOpacity 
+                style={styles.registerButton}
+                onPress={() => alert('Register pressed')} 
+            >
+                <Text style={styles.buttonText}>Register</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity 
+                style={styles.loginButton}
+                onPress={() => alert('Login pressed')} 
+            >
+                <Text style={styles.buttonText}>Login</Text>
+            </TouchableOpacity>
+        </ImageBackground>
+    );
+}
+
+const styles = StyleSheet.create({
+    background: {
+        flex: 1,
+        justifyContent: "flex-end",
+        alignItems: "center",
+    },
+    logo: {
+        width: 96,
+        height: 96,
+        marginBottom: 10,
+    },
+    textStyle: {
+        color: 'white',
+        fontSize: 18,
+        textAlign: 'center',
+        marginBottom: 20,
+    },
+    logoContainer: {
+        position: "absolute",
+        top: 70,
+        alignItems: "center",
+    },
+    animatedImage: {
+        width: 100,  // Adjust as needed
+        height: 100, // Adjust as needed
+        marginVertical: 20,
+    },
+    registerButton: {
+        width: "90%",
+        height: 60,
+        backgroundColor: colors.secondary,
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 10,
+        marginBottom: 10,
+    },
+    loginButton: {
+        width: "90%",
+        height: 60,
+        backgroundColor: colors.primary,
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 10,
+        marginBottom: 10,
+    },
+    workoutButton: {
+        width: "90%",
+        height: 60,
+        backgroundColor: colors.primary,
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 10,
+        marginBottom: 10,  
+    },
+    buttonText: {
+        color: "#fff",
+        fontSize: 18,
+    },
+});
+
+export default WelcomeScreen;
