@@ -2,6 +2,7 @@
 import React from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import * as Font from 'expo-font';
 
 const exercises = [
   { id: '1', name: 'Push-Up', category: 'Strength' },

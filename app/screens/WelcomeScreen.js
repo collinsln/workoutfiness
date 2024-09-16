@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { ImageBackground, Text, View, TouchableOpacity, SafeAreaView, StyleSheet } from 'react-native';
+import { Text, View, TouchableOpacity, SafeAreaView, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import colors from '../config/colors';
-import BackgroundMusic from './BackgroundMusic';
 import GenderSelection from './GenderSelection';
 import AgeSlider from './AgeSlider';
 
@@ -10,123 +8,110 @@ function WelcomeScreen() {
     const navigation = useNavigation();
     const [selectedGender, setSelectedGender] = useState(null);
     const [age, setAge] = useState(0);  
-    const [ageSelected, setAgeSelected] = useState(false);
+    const [ageValid, setAgeValid] = useState(false);
 
+    // Handles gender selection
     const handleSelectGender = (gender) => {
         setSelectedGender(gender);
-        console.log('Selected Gender:', gender);
     };
 
+    // Navigates to GoalSelectionScreen if age is valid
     const handleGoalSelection = () => {
-        if (ageSelected) {
-            navigation.navigate('GoalSelectionScreen', { gender: selectedGender, age });
-            navigation.reset({
-                index: 0,
-                routes: [{ name: 'GoalSelectionScreen', params: { gender: selectedGender, age } }],
-            });
+        if (ageValid) {
+            navigation.navigate('GoalSelectionScreen', { selectedGender, age });
+        } else {
+            alert('Please select a valid age above 10');
         }
     };
 
+    // Validates the age and sets the ageValid state
     const submitAge = () => {
-        if (age >= 0) {
-            setAgeSelected(true); 
+        if (age >= 10) {
+            setAgeValid(true); 
         } else {
-            alert('Please select a valid age');
+            alert('Please select a valid age above 10');
+            setAgeValid(false); // Ensure ageValid is false if age is invalid
         }
     };
 
     return (
         <SafeAreaView style={styles.container}>
-            <ImageBackground 
-                style={styles.background}
-                source={require("../assets/icon.png")}
-            >
-                <BackgroundMusic/>
+            <View style={styles.contentContainer}>
+                {!selectedGender ? (
+                    <GenderSelection onSelectGender={handleSelectGender} />
+                ) : (
+                    <View style={styles.mainContent}>
+                        <AgeSlider age={age} onAgeChange={setAge} />
+                        <TouchableOpacity 
+                            style={styles.submitButton}
+                            onPress={submitAge}
+                        >
+                            <Text style={styles.buttonText}>Continue</Text>
+                        </TouchableOpacity>
 
-                <View style={styles.contentContainer}>
-                    {!selectedGender ? (
-                        <>
-                            <Text style={styles.titleText}>Select Your Gender</Text>
-                            <GenderSelection onSelectGender={handleSelectGender} />
-                        </>
-                    ) : (
-                        <>
-                            {!ageSelected ? (
-                                <>
-                                    <Text style={styles.titleText}>Select Your Age</Text>
-                                    <AgeSlider age={age} onAgeChange={setAge} />
-                                    <TouchableOpacity 
-                                        style={styles.submitButton}
-                                        onPress={submitAge}
-                                    >
-                                        <Text style={styles.buttonText}>Submit Age</Text>
-                                    </TouchableOpacity>
-                                </>
-                            ) : (
-                                <Text style={styles.titleText}>Commit to Fit, Commit to You.</Text>
-                            )}
-                            {ageSelected && (
-                                <TouchableOpacity 
-                                    style={styles.workoutButton}
-                                    onPress={handleGoalSelection}
-                                >
-                                    <Text style={styles.buttonText}>Select Your Goal</Text>
-                                </TouchableOpacity>
-                            )}
-                        </>
-                    )}
-                </View>
-            </ImageBackground>
+                        {ageValid && (
+                            <TouchableOpacity 
+                                style={styles.workoutButton}
+                                onPress={handleGoalSelection}
+                            >
+                                <Text style={styles.buttonText}>Get Started</Text>
+                            </TouchableOpacity>
+                        )}
+                    </View>
+                )}
+            </View>
         </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
-    background: {
+    container: {
+        flex: 1,
+        backgroundColor: '#000', // Black background color
+    },
+    contentContainer: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-    },
-    container: {
-        flex: 1,
-    },
-    contentContainer: {
-        alignItems: 'center',
-        width: '80%',
+        width: '85%',
         paddingHorizontal: 20,
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        borderRadius: 15,
-        padding: 20,
     },
-    titleText: {
-        color: '#fff',
-        fontSize: 22,
-        fontWeight: 'bold',
-        textAlign: 'center',
-        marginBottom: 20,
+    mainContent: {
+        alignItems: 'center',
+        width: '100%',
     },
     submitButton: {
         width: '100%',
         height: 60,
-        backgroundColor: colors.primary,
+        backgroundColor: '#2c3e50', // Dark blue-gray background
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 10,
-        marginBottom: 20,
+        borderRadius: 12,
+        marginVertical: 20,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.6,
+        shadowRadius: 8,
+        elevation: 8,
     },
     workoutButton: {
         width: '100%',
         height: 60,
-        backgroundColor: colors.primary,
+        backgroundColor: '#FFF', // White background color
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 10,
-        marginBottom: 20,
+        borderRadius: 12,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 6 },
+        shadowOpacity: 0.6,
+        shadowRadius: 8,
+        elevation: 10,
     },
     buttonText: {
-        color: '#fff',
+        color: '#000', // Black text color for better contrast on white background
         fontSize: 18,
         fontWeight: 'bold',
+        textTransform: 'uppercase',
     },
 });
 

@@ -1,0 +1,391 @@
+{
+  "workouts": [
+    {
+      "id": 1,
+      "workoutName": "Jump Squat",
+      "description": "A dynamic exercise that combines a squat with a jump to increase strength and explosiveness in your lower body.",
+      "youtubeLink": "https://www.youtube.com/watch?v=7K7P2Te6Jdk",
+      "expertAdvice": "Make sure to land softly to reduce impact on your knees. Maintain good form throughout.",
+      "gender": "Male",
+      "goal": "Muscle Gain"
+    },
+    {
+      "id": 2,
+      "workoutName": "Bicycle Crunch",
+      "description": "An effective core exercise that targets both the abs and obliques.",
+      "youtubeLink": "https://www.youtube.com/watch?v=9FGilxCbdz8",
+      "expertAdvice": "Ensure slow, controlled movements to engage your core properly. Avoid pulling on your neck.",
+      "gender": "Male",
+      "goal": "Weight Loss"
+    },
+    {
+      "id": 3,
+      "workoutName": "Bicyle Crunches",
+      "description": "A variation of the bicycle crunch targeting the abdominal muscles and obliques.",
+      "youtubeLink": "https://www.youtube.com/watch?v=9FGilxCbdz8",
+      "expertAdvice": "Focus on a slow and controlled movement for better core engagement.",
+      "gender": "Male",
+      "goal": "Weight Loss"
+    },
+    {
+      "id": 4,
+      "workoutName": "Calf Raises",
+      "description": "A simple exercise to strengthen and tone the calf muscles.",
+      "youtubeLink": "https://www.youtube.com/watch?v=7K7P2Te6Jdk",
+      "expertAdvice": "Perform the movement slowly to maximize muscle engagement. Keep your movements controlled.",
+      "gender": "Male",
+      "goal": "Muscle Gain"
+    },
+    {
+      "id": 5,
+      "workoutName": "Cossack Squat",
+      "description": "A deep squat variation that targets the inner thighs, quads, and glutes.",
+      "youtubeLink": "https://www.youtube.com/watch?v=JvC3P9FQkV8",
+      "expertAdvice": "Keep your chest up and back straight while squatting to avoid injury.",
+      "gender": "Male",
+      "goal": "Overall Fitness"
+    },
+    {
+      "id": 6,
+      "workoutName": "Finger Wave",
+      "description": "An arm exercise that involves a waving motion to improve flexibility and strength.",
+      "youtubeLink": "https://www.youtube.com/watch?v=example",
+      "expertAdvice": "Perform the exercise with smooth and controlled movements.",
+      "gender": "Male",
+      "goal": "Overall Fitness"
+    },
+    {
+      "id": 7,
+      "workoutName": "Forward Lunge",
+      "description": "A classic lower-body exercise that works the quads, hamstrings, and glutes.",
+      "youtubeLink": "https://www.youtube.com/watch?v=QOVaHwm-Q6U",
+      "expertAdvice": "Ensure your front knee does not go beyond your toes and keep your torso upright.",
+      "gender": "Male",
+      "goal": "Overall Fitness"
+    },
+    {
+      "id": 8,
+      "workoutName": "Incline Push-Up",
+      "description": "A variation of the push-up performed with hands elevated, targeting the upper chest and shoulders.",
+      "youtubeLink": "https://www.youtube.com/watch?v=6OaKxrmOw-I",
+      "expertAdvice": "Keep your body in a straight line and lower yourself until your chest nearly touches the incline.",
+      "gender": "Male",
+      "goal": "Muscle Gain"
+    },
+    {
+      "id": 9,
+      "workoutName": "Kneeling Diamond Push-Ups",
+      "description": "A push-up variation where hands form a diamond shape, performed on the knees to target the triceps and chest.",
+      "youtubeLink": "https://www.youtube.com/watch?v=K4lIUsJzP0k",
+      "expertAdvice": "Keep your elbows close to your body and engage your core throughout.",
+      "gender": "Male",
+      "goal": "Muscle Gain"
+    },
+    {
+      "id": 10,
+      "workoutName": "Push-Ups",
+      "description": "A classic upper-body exercise that targets the chest, shoulders, and triceps.",
+      "youtubeLink": "https://www.youtube.com/watch?v=_l3ySVKYVJ8",
+      "expertAdvice": "Keep your body in a straight line from head to heels. Lower yourself until your chest nearly touches the floor.",
+      "gender": "Male",
+      "goal": "Muscle Gain"
+    },
+    {
+      "id": 11,
+      "workoutName": "Reverse Crunch",
+      "description": "An abdominal exercise that targets the lower abs.",
+      "youtubeLink": "https://www.youtube.com/watch?v=8G1B2L4bZ2M",
+      "expertAdvice": "Lift your hips towards your chest with control and engage your lower abs.",
+      "gender": "Male",
+      "goal": "Weight Loss"
+    },
+    {
+      "id": 12,
+      "workoutName": "Rope Assisted Leg Raise",
+      "description": "An exercise to strengthen the lower abs and hip flexors using a rope for assistance.",
+      "youtubeLink": "https://www.youtube.com/watch?v=example",
+      "expertAdvice": "Control the movement and engage your core to lift your legs.",
+      "gender": "Male",
+      "goal": "Muscle Gain"
+    },
+    {
+      "id": 13,
+      "workoutName": "Side Crunch",
+      "description": "A core exercise focusing on the oblique muscles.",
+      "youtubeLink": "https://www.youtube.com/watch?v=example",
+      "expertAdvice": "Perform the movement slowly and with control to engage your obliques.",
+      "gender": "Male",
+      "goal": "Weight Loss"
+    },
+    {
+      "id": 14,
+      "workoutName": "Single Leg Squat",
+      "description": "A challenging squat variation that improves balance and targets the quads and glutes.",
+      "youtubeLink": "https://www.youtube.com/watch?v=sJtUEGVe2PA",
+      "expertAdvice": "Reach forward with control while maintaining balance on the supporting leg.",
+      "gender": "Male",
+      "goal": "Muscle Gain"
+    },
+    {
+      "id": 15,
+      "workoutName": "Single Leg Squat Reach",
+      "description": "An advanced single-leg squat that includes a forward reach to improve balance and strength.",
+      "youtubeLink": "https://www.youtube.com/watch?v=example",
+      "expertAdvice": "Extend your reach with control and maintain balance throughout the exercise.",
+      "gender": "Male",
+      "goal": "Muscle Gain"
+    },
+    {
+      "id": 16,
+      "workoutName": "Split Squat",
+      "description": "A lower-body exercise that targets the quads and glutes by lowering into a split stance.",
+      "youtubeLink": "https://www.youtube.com/watch?v=8M1b1XYz_bI",
+      "expertAdvice": "Keep your front knee aligned with your toes and maintain a straight posture.",
+      "gender": "Male",
+      "goal": "Muscle Gain"
+    },
+    {
+      "id": 17,
+      "workoutName": "Squats",
+      "description": "A basic lower-body exercise that targets the quads, hamstrings, and glutes.",
+      "youtubeLink": "https://www.youtube.com/watch?v=aclHkVaku9U",
+      "expertAdvice": "Ensure proper form by keeping your chest up and knees aligned with your toes.",
+      "gender": "Male",
+      "goal": "Muscle Gain"
+    },
+    {
+      "id": 18,
+      "workoutName": "Standing Leg Raise",
+      "description": "An exercise that strengthens the hip flexors and improves leg stability.",
+      "youtubeLink": "https://www.youtube.com/watch?v=example",
+      "expertAdvice": "Keep your movements controlled and engage your core throughout.",
+      "gender": "Male",
+      "goal": "Overall Fitness"
+    },
+    {
+      "id": 19,
+      "workoutName": "Standing Trunk Twist",
+      "description": "A core exercise that targets the obliques by twisting the torso while standing.",
+      "youtubeLink": "https://www.youtube.com/watch?v=example",
+      "expertAdvice": "Perform the twist with control and avoid using momentum.",
+      "gender": "Male",
+      "goal": "Overall Fitness"
+    },
+    {
+      "id": 20,
+      "workoutName": "Straight Arm Elevated Dip",
+      "description": "A dip exercise performed with straight arms to target the triceps and shoulders.",
+      "youtubeLink": "https://www.youtube.com/watch?v=example",
+      "expertAdvice": "Keep your body upright and lower yourself with control.",
+      "gender": "Male",
+      "goal": "Muscle Gain"
+    },
+    {
+      "id": 21,
+      "workoutName": "Tricep Dip",
+      "description": "An upper-body exercise targeting the triceps using a dip position.",
+      "youtubeLink": "https://www.youtube.com/watch?v=0325zQ6D9V0",
+      "expertAdvice": "Keep your elbows close to your body and lower yourself slowly.",
+      "gender": "Male",
+      "goal": "Muscle Gain"
+    },
+    {
+      "id": 22,
+      "workoutName": "Wall Push-Ups",
+      "description": "A beginner-friendly push-up variation performed against a wall to build upper-body strength.",
+      "youtubeLink": "https://www.youtube.com/watch?v=example",
+      "expertAdvice": "Maintain a straight line from head to heels and keep your elbows close to your body.",
+      "gender": "Male",
+      "goal": "Overall Fitness"
+    },
+    {
+      "id": 23,
+      "workoutName": "Forward Lunges",
+      "description": "A lower-body exercise that targets the quads, hamstrings, and glutes.",
+      "youtubeLink": "https://www.youtube.com/watch?v=QOVaHwm-Q6U",
+      "expertAdvice": "Ensure your front knee does not go beyond your toes and keep your torso upright.",
+      "gender": "Female",
+      "goal": "Overall Fitness"
+    },
+    {
+      "id": 24,
+      "workoutName": "Bent-Knee Sit-Ups",
+      "description": "A basic core workout targeting the abdominal muscles. Keep your knees bent to avoid back strain.",
+      "youtubeLink": "https://www.youtube.com/watch?v=Yg3tA67vA_Q",
+      "expertAdvice": "Remember to keep your back straight and engage your core throughout the movement. Do not use your neck or shoulders to lift.",
+      "gender": "Female",
+      "goal": "Weight Loss"
+    },
+    {
+      "id": 25,
+      "workoutName": "Bicycle Crunch",
+      "description": "An effective core exercise that targets both the abs and obliques.",
+      "youtubeLink": "https://www.youtube.com/watch?v=9FGilxCbdz8",
+      "expertAdvice": "Ensure slow, controlled movements to engage your core properly. Avoid pulling on your neck.",
+      "gender": "Female",
+      "goal": "Weight Loss"
+    },
+    {
+      "id": 26,
+      "workoutName": "Calf Raises",
+      "description": "A simple exercise to strengthen and tone the calf muscles.",
+      "youtubeLink": "https://www.youtube.com/watch?v=7K7P2Te6Jdk",
+      "expertAdvice": "Perform the movement slowly to maximize muscle engagement. Keep your movements controlled.",
+      "gender": "Female",
+      "goal": "Muscle Gain"
+    },
+    {
+      "id": 27,
+      "workoutName": "Chest Lift",
+      "description": "An exercise that targets the upper chest and helps in building strength.",
+      "youtubeLink": "https://www.youtube.com/watch?v=example",
+      "expertAdvice": "Lift your chest with control and focus on engaging the upper chest muscles.",
+      "gender": "Female",
+      "goal": "Overall Fitness"
+    },
+    {
+      "id": 28,
+      "workoutName": "Cossack Squat",
+      "description": "A deep squat variation that targets the inner thighs, quads, and glutes.",
+      "youtubeLink": "https://www.youtube.com/watch?v=JvC3P9FQkV8",
+      "expertAdvice": "Keep your chest up and back straight while squatting to avoid injury.",
+      "gender": "Female",
+      "goal": "Overall Fitness"
+    },
+    {
+      "id": 29,
+      "workoutName": "High Knees Exercise",
+      "description": "A great cardio workout to improve endurance and strengthen your legs and core.",
+      "youtubeLink": "https://www.youtube.com/watch?v=4ANbR_Azzyw",
+      "expertAdvice": "Drive your knees towards your chest with explosive power. Maintain proper posture with your chest up and core tight.",
+      "gender": "Female",
+      "goal": "Overall Fitness"
+    },
+    {
+      "id": 30,
+      "workoutName": "Plank",
+      "description": "A core exercise that targets the abs and helps in building overall core strength.",
+      "youtubeLink": "https://www.youtube.com/watch?v=pSHjTRCQxIw",
+      "expertAdvice": "Maintain a straight line from head to heels and engage your core throughout.",
+      "gender": "Female",
+      "goal": "Overall Fitness"
+    },
+    {
+      "id": 31,
+      "workoutName": "Push-Ups",
+      "description": "A classic upper-body exercise that targets the chest, shoulders, and triceps.",
+      "youtubeLink": "https://www.youtube.com/watch?v=_l3ySVKYVJ8",
+      "expertAdvice": "Keep your body in a straight line from head to heels. Lower yourself until your chest nearly touches the floor.",
+      "gender": "Female",
+      "goal": "Muscle Gain"
+    },
+    {
+      "id": 32,
+      "workoutName": "Side Plank",
+      "description": "A variation of the plank that targets the oblique muscles and helps build core strength.",
+      "youtubeLink": "https://www.youtube.com/watch?v=Kf3F8zuJ9BQ",
+      "expertAdvice": "Keep your body in a straight line and hold the position for as long as you can.",
+      "gender": "Female",
+      "goal": "Overall Fitness"
+    },
+    {
+      "id": 33,
+      "workoutName": "Reverse Crunch",
+      "description": "An abdominal exercise that targets the lower abs.",
+      "youtubeLink": "https://www.youtube.com/watch?v=8G1B2L4bZ2M",
+      "expertAdvice": "Lift your hips towards your chest with control and engage your lower abs.",
+      "gender": "Female",
+      "goal": "Weight Loss"
+    },
+    {
+      "id": 34,
+      "workoutName": "Push-Up on Knees",
+      "description": "A modified push-up exercise for beginners or those working on upper body strength.",
+      "youtubeLink": "https://www.youtube.com/watch?v=OoFvl2SYgHg",
+      "expertAdvice": "Maintain a straight line from your knees to your shoulders. Engage your core and avoid arching your back.",
+      "gender": "Female",
+      "goal": "Weight Loss"
+    },
+    {
+      "id": 35,
+      "workoutName": "Side Leg Lift",
+      "description": "An exercise that targets the outer thighs and hips by lifting one leg at a time.",
+      "youtubeLink": "https://www.youtube.com/watch?v=example",
+      "expertAdvice": "Lift your leg slowly and with control, keeping your body steady.",
+      "gender": "Female",
+      "goal": "Overall Fitness"
+    },
+    {
+      "id": 36,
+      "workoutName": "Side Squat",
+      "description": "A squat variation that targets the inner thighs and glutes by performing the squat to the side.",
+      "youtubeLink": "https://www.youtube.com/watch?v=example",
+      "expertAdvice": "Keep your knee aligned with your toes and maintain good posture throughout.",
+      "gender": "Female",
+      "goal": "Overall Fitness"
+    },
+    {
+      "id": 37,
+      "workoutName": "Split Squat",
+      "description": "A lower-body exercise that targets the quads and glutes by lowering into a split stance.",
+      "youtubeLink": "https://www.youtube.com/watch?v=8M1b1XYz_bI",
+      "expertAdvice": "Keep your front knee aligned with your toes and maintain a straight posture.",
+      "gender": "Female",
+      "goal": "Muscle Gain"
+    },
+    {
+      "id": 38,
+      "workoutName": "Squat",
+      "description": "A fundamental lower-body exercise that targets the quads, hamstrings, and glutes.",
+      "youtubeLink": "https://www.youtube.com/watch?v=YaXPRqUwItQ",
+      "expertAdvice": "Keep your knees behind your toes and push through your heels. Engage your core and avoid rounding your back.",
+      "gender": "Female",
+      "goal": "Muscle Gain"
+    },
+    {
+      "id": 39,
+      "workoutName": "Standing Knee Lift",
+      "description": "An exercise that improves hip flexor strength and balance by lifting your knees to your chest.",
+      "youtubeLink": "https://www.youtube.com/watch?v=example",
+      "expertAdvice": "Lift your knees with control and engage your core throughout.",
+      "gender": "Female",
+      "goal": "Overall Fitness"
+    },
+    {
+      "id": 40,
+      "workoutName": "Straight Leg Raise",
+      "description": "An exercise to strengthen the hip flexors and improve overall leg stability.",
+      "youtubeLink": "https://www.youtube.com/watch?v=example",
+      "expertAdvice": "Lift your leg slowly and with control, keeping your body steady.",
+      "gender": "Female",
+      "goal": "Overall Fitness"
+    },
+    {
+      "id": 41,
+      "workoutName": "Toe Walking",
+      "description": "An exercise that strengthens the calves and improves balance by walking on your toes.",
+      "youtubeLink": "https://www.youtube.com/watch?v=example",
+      "expertAdvice": "Keep your core engaged and walk slowly to maximize calf engagement.",
+      "gender": "Female",
+      "goal": "Muscle Gain"
+    },
+    {
+      "id": 42,
+      "workoutName": "Triceps Dips",
+      "description": "An upper-body exercise targeting the triceps using a dip position.",
+      "youtubeLink": "https://www.youtube.com/watch?v=0325zQ6D9V0",
+      "expertAdvice": "Keep your elbows close to your body and lower yourself slowly.",
+      "gender": "Male",
+      "goal": "Muscle Gain"
+    },
+    {
+      "id": 43,
+      "workoutName": "Wall Push-Ups",
+      "description": "A beginner-friendly push-up variation performed against a wall to build upper-body strength.",
+      "youtubeLink": "https://www.youtube.com/watch?v=example",
+      "expertAdvice": "Maintain a straight line from head to heels and keep your elbows close to your body.",
+      "gender": "Male",
+      "goal": "Overall Fitness"
+    }
+  ]
+}

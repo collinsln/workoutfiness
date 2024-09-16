@@ -1,34 +1,36 @@
-// BackgroundMusic.js
-import React, { useEffect, useRef } from 'react';
-import { Audio } from 'expo-av';
+// src/screens/BackgroundMusic.js
+import React, { useContext, useEffect, useRef } from 'react';
+import { MusicContext } from '../context/MusicContext';
+import { Audio } from 'expo-av'; // Ensure you have expo-av installed
 
 const BackgroundMusic = () => {
-    const sound = useRef(null);
+  const { isMuted } = useContext(MusicContext);
+  const sound = useRef(null);
 
-    useEffect(() => {
-        const loadSound = async () => {
-            try {
-                const { sound: loadedSound } = await Audio.Sound.createAsync(
-                    require('../assets/music/Tonedefault1.mp3') // Correct path to the MP3 file
-                );
-                loadedSound.setIsLoopingAsync(true); // Optionally loop the sound
-                loadedSound.playAsync();
-                sound.current = loadedSound;
-            } catch (error) {
-                console.error('Failed to load sound', error);
-            }
-        };
+  useEffect(() => {
+    const loadSound = async () => {
+      const { sound: newSound } = await Audio.Sound.createAsync(
+        require('../assets/music/Tonedefault3.mp3') 
+      );
+      sound.current = newSound;
+      sound.current.setIsLoopingAsync(true); // Ensure the music loops
+      sound.current.playAsync(); // Start playing the music
+    };
 
-        loadSound();
+    loadSound();
 
-        return () => {
-            if (sound.current) {
-                sound.current.unloadAsync(); // Clean up
-            }
-        };
-    }, []);
+    return () => {
+      sound.current?.unloadAsync(); // Cleanup the sound on unmount
+    };
+  }, []); // Empty dependency array ensures this effect runs once on mount
 
-    return null; // This component does not render anything
+  useEffect(() => {
+    if (sound.current) {
+      sound.current.setIsMutedAsync(isMuted);
+    }
+  }, [isMuted]);
+
+  return null; // This component doesn’t render anything visible
 };
 
 export default BackgroundMusic;
