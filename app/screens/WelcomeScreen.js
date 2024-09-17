@@ -10,12 +10,10 @@ function WelcomeScreen() {
     const [age, setAge] = useState(0);  
     const [ageValid, setAgeValid] = useState(false);
 
-    // Handles gender selection
     const handleSelectGender = (gender) => {
         setSelectedGender(gender);
     };
 
-    // Navigates to GoalSelectionScreen if age is valid
     const handleGoalSelection = () => {
         if (ageValid) {
             navigation.navigate('GoalSelectionScreen', { selectedGender, age });
@@ -24,13 +22,12 @@ function WelcomeScreen() {
         }
     };
 
-    // Validates the age and sets the ageValid state
     const submitAge = () => {
         if (age >= 10) {
             setAgeValid(true); 
         } else {
             alert('Please select a valid age above 10');
-            setAgeValid(false); // Ensure ageValid is false if age is invalid
+            setAgeValid(false);
         }
     };
 
@@ -41,22 +38,12 @@ function WelcomeScreen() {
                     <GenderSelection onSelectGender={handleSelectGender} />
                 ) : (
                     <View style={styles.mainContent}>
-                        <AgeSlider age={age} onAgeChange={setAge} />
-                        <TouchableOpacity 
-                            style={styles.submitButton}
-                            onPress={submitAge}
-                        >
-                            <Text style={styles.buttonText}>Continue</Text>
-                        </TouchableOpacity>
-
-                        {ageValid && (
-                            <TouchableOpacity 
-                                style={styles.workoutButton}
-                                onPress={handleGoalSelection}
-                            >
-                                <Text style={styles.buttonText}>Get Started</Text>
-                            </TouchableOpacity>
-                        )}
+                        <AgeSlider 
+                            age={age} 
+                            onAgeChange={setAge} 
+                            onProceed={handleGoalSelection} 
+                        />
+                        
                     </View>
                 )}
             </View>
@@ -67,23 +54,23 @@ function WelcomeScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#000', // Black background color
+        backgroundColor: '#000',
     },
     contentContainer: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        width: '85%',
+        width: '100%',
         paddingHorizontal: 20,
     },
     mainContent: {
-        alignItems: 'center',
+        flex: 1,
         width: '100%',
     },
     submitButton: {
         width: '100%',
         height: 60,
-        backgroundColor: '#2c3e50', // Dark blue-gray background
+        backgroundColor: '#2c3e50',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 12,
@@ -94,23 +81,10 @@ const styles = StyleSheet.create({
         shadowRadius: 8,
         elevation: 8,
     },
-    workoutButton: {
-        width: '100%',
-        height: 60,
-        backgroundColor: '#FFF', // White background color
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 12,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 6 },
-        shadowOpacity: 0.6,
-        shadowRadius: 8,
-        elevation: 10,
-    },
     buttonText: {
-        color: '#000', // Black text color for better contrast on white background
+        color: '#FFF',
         fontSize: 18,
-        fontWeight: 'bold',
+        // fontWeight: 'bold',
         textTransform: 'uppercase',
     },
 });

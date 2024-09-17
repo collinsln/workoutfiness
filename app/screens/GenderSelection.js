@@ -1,7 +1,6 @@
 // src/screens/GenderSelection.js
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
-import { Video } from 'expo-av'; // Import the Video component
+import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Image } from 'react-native';
 import { useGender } from '../context/Gender_Context'; // Import the context hook
 
 const GenderSelection = ({ onSelectGender }) => {
@@ -18,6 +17,7 @@ const GenderSelection = ({ onSelectGender }) => {
     return (
         <View style={styles.container}>
             <View style={styles.mainContent}>
+
                 <Text style={styles.welcomeText}>
                     We're excited to have you here! To get started, please select your gender. This will help us tailor the experience to your preferences.
                 </Text>
@@ -29,14 +29,10 @@ const GenderSelection = ({ onSelectGender }) => {
                         ]}
                         onPress={() => handleSelect('Male')}
                     >
-                        <View style={styles.videoWrapper}>
-                            <Video
-                                source={require('../assets/animation/man/man_rotate.mp4')} // Video source
-                                style={styles.video}
-                                shouldPlay={true}
-                                isLooping={true}
-                                resizeMode="cover"
-                                rate={1.2} // Faster playback rate
+                        <View style={styles.imageWrapper}>
+                            <Image
+                                source={require('../assets/animation/man/male.png')} 
+                                style={styles.image}
                             />
                         </View>
                         <Text style={styles.buttonText}>Male</Text>
@@ -48,14 +44,10 @@ const GenderSelection = ({ onSelectGender }) => {
                         ]}
                         onPress={() => handleSelect('Female')}
                     >
-                        <View style={styles.videoWrapper}>
-                            <Video
-                                source={require('../assets/animation/lady/lady_rotate.mp4')} // Video source
-                                style={styles.video}
-                                shouldPlay={true}
-                                isLooping={true}
-                                resizeMode="cover"
-                                rate={0.8} // Slower playback rate
+                        <View style={styles.imageWrapper}>
+                            <Image
+                                source={require('../assets/animation/lady/female.png')} 
+                                style={styles.image}
                             />
                         </View>
                         <Text style={styles.buttonText}>Female</Text>
@@ -77,7 +69,7 @@ const styles = StyleSheet.create({
     },
     mainContent: {
         width: '90%',
-        alignItems: 'center',
+        alignItems:'center',
         padding: 20,
     },
     welcomeText: {
@@ -115,7 +107,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 10,
     },
-    videoWrapper: {
+    imageWrapper: {
         position: 'absolute',
         top: 0,
         left: 0,
@@ -124,9 +116,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    video: {
+    image: {
         width: '100%',
         height: '100%',
+        resizeMode: 'contain' ,
     },
 });
 

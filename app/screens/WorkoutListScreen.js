@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList, ActivityIndicator, Alert } from 'react-native';
 import { useGender } from '../context/Gender_Context';
 import { useRoute, useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/FontAwesome';  // Import Icon component for settings button
 import exercises from '../assets/exercises.json';
 
 function WorkoutListScreen() {
@@ -9,10 +10,6 @@ function WorkoutListScreen() {
   const route = useRoute();
   const navigation = useNavigation();
   const { goal: workoutType } = route.params || {};  // Extract goal from route params
-
-  // Logging context and route params
-  console.log('Selected gender from context:', gender);
-  console.log('Route params:', route.params);
 
   const [difficulty, setDifficulty] = useState('Beginner');
   const [loading, setLoading] = useState(false);
@@ -34,9 +31,6 @@ function WorkoutListScreen() {
     }
   };
 
-  // Logging additional details
-  console.log('Selected gender:', gender);
-  console.log('Workout type (goal):', workoutType);
 
   if (!gender || !workoutType) {
     return (
@@ -46,7 +40,6 @@ function WorkoutListScreen() {
     );
   }
 
-  // Ensure exercises.workouts is defined and an array
   if (!Array.isArray(exercises.workouts)) {
     console.error('Exercises data is not an array or is undefined:', exercises.workouts);
     return (
@@ -56,17 +49,13 @@ function WorkoutListScreen() {
     );
   }
 
-  // Filter workouts based on gender and goal
   const filteredWorkouts = exercises.workouts.filter(
     (workout) =>
       (workout.gender === gender || workout.gender === 'any') &&
       workout.goal === workoutType
   );
 
-  console.log('Filtered workouts:', filteredWorkouts);
-
   const handleWorkoutPress = (workout) => {
-    // Ensure workout object has necessary properties
     if (workout && workout.workoutName && workout.description) {
       navigation.navigate('WorkoutDetailScreen', {
         workoutName: workout.workoutName,
@@ -74,7 +63,6 @@ function WorkoutListScreen() {
         workoutReps: workout.reps ? workout.reps[difficulty.toLowerCase()] : 'N/A',
       });
     } else {
-      console.error('Invalid workout data:', workout);
       Alert.alert('Error', 'Invalid workout data.');
     }
   };
@@ -97,8 +85,10 @@ function WorkoutListScreen() {
 
   return (
     <View style={styles.container}>
+     
+
       <Text style={styles.header}>Workouts for {workoutType}</Text>
-      {/* Display difficulty picker (optional) */}
+
       <FlatList
         data={filteredWorkouts}
         keyExtractor={(item) => item.id.toString()}
@@ -115,59 +105,53 @@ function WorkoutListScreen() {
   );
 }
 
+// Add styling for the settings button
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
     backgroundColor: '#000',
+    paddingHorizontal: 20,
+    paddingTop: 50,
+  },
+  settingsButton: {
+    position: 'absolute',
+    top: 20,
+    right: 20,
+    zIndex: 1,
   },
   header: {
     fontSize: 24,
     fontWeight: 'bold',
     color: '#ecf0f1',
     marginBottom: 20,
-  },
-  picker: {
-    height: 50,
-    width: '100%',
-    marginBottom: 20,
-    color: '#ecf0f1',
-    backgroundColor: '#34495e',
+    textAlign: 'center',
   },
   card: {
     backgroundColor: '#34495e',
-    borderRadius: 10,
     padding: 15,
-    marginBottom: 15,
-    shadowColor: '#000000',
-    shadowOpacity: 0.2,
-    shadowRadius: 10,
-    elevation: 5,
+    marginVertical: 10,
+    borderRadius: 10,
   },
   workoutName: {
     fontSize: 18,
-    fontWeight: 'bold',
     color: '#ecf0f1',
+    fontWeight: 'bold',
   },
   workoutDescription: {
-    fontSize: 14,
     color: '#bdc3c7',
-    marginTop: 5,
   },
   workoutReps: {
-    fontSize: 14,
     color: '#ecf0f1',
-    marginTop: 5,
+    marginTop: 10,
   },
   expertAdvice: {
-    fontSize: 14,
-    color: '#bdc3c7',
+    color: '#f1c40f',
     marginTop: 5,
   },
   message: {
-    fontSize: 16,
+    color: '#ecf0f1',
     textAlign: 'center',
-    color: '#bdc3c7',
+    marginTop: 50,
   },
 });
 

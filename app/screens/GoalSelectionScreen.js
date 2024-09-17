@@ -5,12 +5,12 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import BackgroundMusic from './BackgroundMusic';  // Import the BackgroundMusic component
 
 const goals = [
-  { id: '1', name: 'Weight Loss', image: require('../assets/weightLoss.png') },
-  { id: '2', name: 'Muscle Gain', image: require('../assets/weightLoss.png') },
+  { id: '1', name: 'Weight Loss', image: require('../assets/Goal_Icon2.png') },
+  { id: '2', name: 'Muscle Gain', image: require('../assets/Goal_Icon2.png') },
+  { id: '6', name: 'Overall Fitness', image: require('../assets/Goal_Icon2.png') },
 //   { id: '3', name: 'Endurance', image: require('../assets/weightLoss.png') },
 //   { id: '4', name: 'Flexibility', image: require('../assets/weightLoss.png') },
-//   { id: '5', name: 'Strength Training', image: require('../assets/weightLoss.png') },
-  { id: '6', name: 'Overall Fitness', image: require('../assets/weightLoss.png') },
+//   { id: '5', name: 'Strength Training', image: require('../assets/weightLoss.png') }, 
 //   { id: '7', name: 'Body Toning', image: require('../assets/weightLoss.png') },
 //   { id: '8', name: 'Cardio Fitness', image: require('../assets/weightLoss.png') },
 ];
@@ -22,23 +22,10 @@ function GoalSelectionScreen({ navigation }) {
     navigation.navigate('WorkoutListScreen', { goal: goal.name });
   };
 
-  const handleSettingsPress = () => {
-    console.log('Settings button pressed');
-    navigation.navigate('Settings');
-  };
 
   return (
     <View style={styles.container}>
-      {/* Background Music */}
-      {/* <BackgroundMusic />   */}
-
-      {/* Settings Button */}
-      <TouchableOpacity style={styles.settingsButton} onPress={handleSettingsPress}>
-        <Icon name="cog" size={30} color="#fff" />
-      </TouchableOpacity>
-
-      {/* <SpinningAsterisk /> */}
-      <Text style={styles.header}>Select Your Goal</Text>
+      
 
       <FlatList
         data={goals}
@@ -67,16 +54,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#fff', // Light text color
   },
-  settingsButton: {
-    position: 'absolute',
-    top: 20,
-    right: 20,
-    zIndex: 10,
-  },
+  
   card: {
     backgroundColor: '#2c3e50', 
     borderRadius: 15,
-    padding: 15,
+    padding: 20,
     marginVertical: 10,
     elevation: 5,
     shadowColor: '#000',
@@ -86,11 +68,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: 60,
-    height: 60,
+    width: 100,
+    height: 100,
     borderRadius: 30,
-    marginRight: 15,
-    backgroundColor: '#444', // Dark background for images if needed
+    marginRight: 25,
+    backgroundColor: '#2c3e50', // Dark background for images
   },
   goalName: {
     fontSize: 18,

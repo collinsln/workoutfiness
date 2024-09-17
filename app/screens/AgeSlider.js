@@ -1,80 +1,134 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import Slider from '@react-native-community/slider';
-import { Animated } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Platform, Alert } from 'react-native';
+import Slider from '@react-native-community/slider'; // Updated import for Slider
+import { Video } from 'expo-av'; // Import Video from expo-av
+import { useGender } from '../context/Gender_Context'; // Import the context hook
+import { useNavigation } from '@react-navigation/native'; // Import useNavigation hook
 
 const AgeSlider = ({ age, onAgeChange }) => {
-    const thumbAnimation = new Animated.Value(0);
+    const { gender } = useGender(); // Get the selected gender from context
+    const navigation = useNavigation(); // Initialize navigation
 
-    const handleSlidingStart = () => {
-        Animated.spring(thumbAnimation, {
-            toValue: 1,
-            friction: 4,
-            tension: 40,
-            useNativeDriver: true,
-        }).start();
+    const getAnimationSource = () => {
+        if (gender === 'Male') {
+            return require('../assets/animation/man/man_rotate.mp4'); // Video source for male
+        } else if (gender === 'Female') {
+            return require('../assets/animation/lady/lady_rotate.mp4'); // Video source for female
+        }
+        return null;
     };
 
-    const handleSlidingComplete = () => {
-        Animated.spring(thumbAnimation, {
-            toValue: 0,
-            friction: 4,
-            tension: 40,
-            useNativeDriver: true,
-        }).start();
-    };
-
-    const thumbStyle = {
-        transform: [
-            {
-                scale: thumbAnimation.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [1, 1.2],
-                }),
-            },
-        ],
+    const handleProceed = () => {
+        if (age < 1 || age > 100) { // Check if age is valid
+            Alert.alert('Invalid Age', 'Please select a valid age between 10 and 100.');
+            return;
+        }
+        navigation.navigate('GoalSelectionScreen', { age });
     };
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.label}> Kindly Select Your Age</Text>
-            <Slider
-                style={styles.slider}
-                minimumValue={0}
-                maximumValue={100}
-                step={1}
-                value={age}
-                onValueChange={onAgeChange}
-                onSlidingStart={handleSlidingStart}
-                onSlidingComplete={handleSlidingComplete}
-                minimumTrackTintColor="#2c3e50" // Dark blue-gray for minimum track
-                maximumTrackTintColor="#d3d3d3" // Light gray for maximum track
-                thumbTintColor="#2c3e50" // Dark blue-gray for thumb
-                thumbStyle={thumbStyle}
-            />
-            <Text style={styles.ageText}>Age: {Math.round(age)}</Text>
-        </View>
+        <SafeAreaView style={styles.container}>
+            <View style={styles.animationContainer}>
+                {getAnimationSource() && (
+                    <Video
+                        source={getAnimationSource()}
+                        style={styles.animation}
+                        shouldPlay
+                        resizeMode="contain"
+                        isLooping
+                    />
+                )}
+            </View>
+            <View style={styles.sliderContainer}>
+                <Text style={styles.label}>Select Your Age</Text>
+                <Slider
+                    style={styles.slider}
+                    minimumValue={0}
+                    maximumValue={100}
+                    step={1}
+                    value={age}
+                    onValueChange={onAgeChange}
+                    thumbTintColor="#FFF" 
+                    minimumTrackTintColor="#2c3e50" // Dark blue-gray for the active track
+                    maximumTrackTintColor="#999" // Light gray for the inactive track
+                />
+                <Text style={styles.ageText}>Age: {age}</Text>
+            </View>
+            <TouchableOpacity 
+                style={styles.submitButton}
+                onPress={handleProceed}
+            >
+                <Text style={styles.buttonText}>Get Started</Text>
+            </TouchableOpacity>
+        </SafeAreaView>
     );
 };
 
+// Styles for the AgeSlider component
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
+        justifyContent: 'flex-end', // Push the submit button to the bottom
         alignItems: 'center',
         width: '100%',
+        paddingHorizontal: 20,
+        paddingTop: Platform.OS === 'ios' ? 30 : 20, // Adjust for iOS status bar
+        backgroundColor: '#000', // Ensure background is consistent
+    },
+    animationContainer: {
+        position: 'absolute',
+        top: 100, 
+        width: '100%',
+        alignItems: 'center',
+        paddingTop: Platform.OS === 'ios' ? 10 : 0, 
+    },
+    animation: {
+        width: 300, // Increased width
+        height: 300, // Increased height
+    },
+    sliderContainer: {
+        flex: 1,
+        justifyContent: 'center', 
+        width: '100%',
+        alignItems: 'center',
+        marginTop: 150, 
     },
     label: {
-        color: '#fff', // White text color for the label
         fontSize: 18,
         marginBottom: 10,
+        color: '#FFF', 
     },
     slider: {
-        width: '100%',
-        height: 60, // Thicker slider track
+        width: '80%',
+        height: 40,
     },
     ageText: {
-        color: 'tomato', // White text color for the age text
-        fontSize: 18,
+        fontSize: 20,
         marginTop: 10,
+        color: '#FFF', 
+        fontWeight: 'bold',
+    },
+    submitButton: {
+        width: '100%',
+        height: 60,
+        backgroundColor: '#2c3e50', // Dark blue-gray background
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 12,
+        marginVertical: 20,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.6,
+        shadowRadius: 8,
+        elevation: 8,
+        position: 'absolute',
+        bottom: 0,
+    },
+    buttonText: {
+        color: '#FFF',
+        fontSize: 18,
+        fontWeight: 'bold',
+        textTransform: 'uppercase',
     },
 });
 
